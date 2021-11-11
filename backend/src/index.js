@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+// FOR TESTING LOCALLY:
+// mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true});
 // Connect to Mongoose and set connection variable
 mongoose.connect('mongodb+srv://jeanne:9jh3VExRts0BINCm@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true});
 var db = mongoose.connection;
@@ -39,11 +41,6 @@ app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
 
 // Use Api routes in the App
 app.use('/api/users', userRoutes);
-
-// Uncomment the following lines to test the redis caching locally.
-
-// let photoRoutes = require("./routes/photoRoutes")
-// app.use('/api/photos', photoRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {
