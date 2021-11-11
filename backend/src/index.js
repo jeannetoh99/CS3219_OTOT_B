@@ -14,7 +14,6 @@ let app = express();
 
 // Import routes
 let userRoutes = require("./routes/userRoutes")
-let photoRoutes = require("./routes/photoRoutes")
 
 // Configure bodyparser to handle post request
 app.use(bodyParser.urlencoded({
@@ -40,7 +39,11 @@ app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
 
 // Use Api routes in the App
 app.use('/api/users', userRoutes);
-app.use('/api/photos', photoRoutes);
+
+// Uncomment the following lines to test the redis caching locally.
+
+// let photoRoutes = require("./routes/photoRoutes")
+// app.use('/api/photos', photoRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {
