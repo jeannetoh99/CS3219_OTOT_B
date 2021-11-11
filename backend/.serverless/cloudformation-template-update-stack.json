@@ -207,7 +207,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/cs3219-otot-b/dev/1636657183511-2021-11-11T18:59:43.511Z/cs3219-otot-b.zip"
+          "S3Key": "serverless/cs3219-otot-b/dev/1636658578001-2021-11-11T19:22:58.001Z/cs3219-otot-b.zip"
         },
         "Handler": "s_api.handler",
         "Runtime": "nodejs12.x",
@@ -225,14 +225,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionqwq98GepNcuUBcY2mBOdAsEQ1M3kH9tHPg5IyHhc0Q": {
+    "ApiLambdaVersionagmpUwNiKamJlsiEbWfDwDi9dMOSwUNhRpavCMoD24g": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "pSoTOFYba6HrYjWhv0ycPTaFGll/Kxdrr0jscTp4dBI="
+        "CodeSha256": "e3LbsJcJBU4UwXbvauCDTt+1QoClOWjXnmCah15GZ/4="
       }
     },
     "ApiGatewayRestApi": {
@@ -357,7 +357,7 @@
         "ApiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1636657131689": {
+    "ApiGatewayDeployment1636658528658": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -516,7 +516,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/cs3219-otot-b/dev/1636657183511-2021-11-11T18:59:43.511Z/custom-resources.zip"
+          "S3Key": "serverless/cs3219-otot-b/dev/1636658578001-2021-11-11T19:22:58.001Z/custom-resources.zip"
         },
         "FunctionName": "cs3219-otot-b-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -578,7 +578,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionqwq98GepNcuUBcY2mBOdAsEQ1M3kH9tHPg5IyHhc0Q"
+        "Ref": "ApiLambdaVersionagmpUwNiKamJlsiEbWfDwDi9dMOSwUNhRpavCMoD24g"
       },
       "Export": {
         "Name": "sls-cs3219-otot-b-dev-ApiLambdaFunctionQualifiedArn"
