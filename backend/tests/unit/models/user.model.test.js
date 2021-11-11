@@ -8,7 +8,7 @@ describe('User model', () => {
       newUser = {
         name: faker.name.findName(),
         email: faker.internet.email().toLowerCase(),
-        phone: '87654321',
+        phone: '12345678',
       };
     });
 
@@ -16,8 +16,23 @@ describe('User model', () => {
       await expect(new User(newUser).validate()).resolves.toBeUndefined();
     });
 
+    test('should throw a validation error if name is empty', async () => {
+      newUser.name = '';
+      await expect(new User(newUser).validate()).rejects.toThrow();
+    });
+
     test('should throw a validation error if email is invalid', async () => {
       newUser.email = 'invalidEmail';
+      await expect(new User(newUser).validate()).rejects.toThrow();
+    });
+
+    test('should throw a validation error if phone is invalid (non-numeric)', async () => {
+      newUser.phone = 'invalidPhone';
+      await expect(new User(newUser).validate()).rejects.toThrow();
+    });
+
+    test('should throw a validation error if phone is invalid (not 8 digits)', async () => {
+      newUser.phone = '123456789';
       await expect(new User(newUser).validate()).rejects.toThrow();
     });
   });
