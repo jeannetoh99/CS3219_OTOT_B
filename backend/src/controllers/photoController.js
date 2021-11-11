@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const getPhotos = async (req, res) => {
     const albumId = req.query.albumId;
