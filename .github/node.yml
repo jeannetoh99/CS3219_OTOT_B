@@ -6,6 +6,7 @@ on:
       - main
 
 env:
+  API_BASE_URL: https://nao9id5aeg.execute-api.us-east-1.amazonaws.com/dev
   JWT_SECRET: thisisasamplesecret
   JWT_ACCESS_EXPIRATION_MINUTES: 30
   JWT_REFRESH_EXPIRATION_DAYS: 30
@@ -21,11 +22,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    - run: yarn 
+    - run: cd backend && yarn 
     - name: Deploy on AWS Lambda using Serverless Framework
       uses: serverless/github-action@master
       with:
-        args: -c "serverless deploy"
+        args: -c "cd backend && serverless deploy"
         entrypoint: /bin/sh
       env:
         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
