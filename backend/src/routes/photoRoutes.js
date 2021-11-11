@@ -9,6 +9,6 @@ router
 
 router
   .route('/photos/:id')
-  .get(photosController.getPhotoById);
+  .get(photoController.getPhotoById);
 
 module.exports = router;
