@@ -207,7 +207,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/cs3219-otot-b/dev/1636655629628-2021-11-11T18:33:49.628Z/cs3219-otot-b.zip"
+          "S3Key": "serverless/cs3219-otot-b/dev/1636657183511-2021-11-11T18:59:43.511Z/cs3219-otot-b.zip"
         },
         "Handler": "s_api.handler",
         "Runtime": "nodejs12.x",
@@ -225,14 +225,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionkK81BZzVulZXxAWW1a44l6RS0y4K0OUvPC0CBQc": {
+    "ApiLambdaVersionqwq98GepNcuUBcY2mBOdAsEQ1M3kH9tHPg5IyHhc0Q": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "aR9AU46ZnjFlzUPTq3NeR3bbL6knG1D/DDEf8Z4SLhc="
+        "CodeSha256": "pSoTOFYba6HrYjWhv0ycPTaFGll/Kxdrr0jscTp4dBI="
       }
     },
     "ApiGatewayRestApi": {
@@ -357,7 +357,7 @@
         "ApiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1636655537941": {
+    "ApiGatewayDeployment1636657131689": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -516,7 +516,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/cs3219-otot-b/dev/1636655629628-2021-11-11T18:33:49.628Z/custom-resources.zip"
+          "S3Key": "serverless/cs3219-otot-b/dev/1636657183511-2021-11-11T18:59:43.511Z/custom-resources.zip"
         },
         "FunctionName": "cs3219-otot-b-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -578,7 +578,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionkK81BZzVulZXxAWW1a44l6RS0y4K0OUvPC0CBQc"
+        "Ref": "ApiLambdaVersionqwq98GepNcuUBcY2mBOdAsEQ1M3kH9tHPg5IyHhc0Q"
       },
       "Export": {
         "Name": "sls-cs3219-otot-b-dev-ApiLambdaFunctionQualifiedArn"

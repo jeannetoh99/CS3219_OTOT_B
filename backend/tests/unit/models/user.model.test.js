@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { User } = require('../../../src/models/userModel');
+const User = require('../../../src/models/userModel');
 
 describe('User model', () => {
   describe('User validation', () => {
@@ -8,7 +8,7 @@ describe('User model', () => {
       newUser = {
         name: faker.name.findName(),
         email: faker.internet.email().toLowerCase(),
-        phone: faker.internet.phone(),
+        phone: '87654321',
       };
     });
 

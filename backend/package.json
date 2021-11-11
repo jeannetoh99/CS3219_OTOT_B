@@ -4,9 +4,10 @@
   "description": "CRUD application task",
   "main": "src/index.js",
   "scripts": {
-    "restart": "pm2 startOrRestart ecosystem.config.js",
-    "deploy": "pm2 deploy ecosystem.config.js production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -i --colors --verbose",
+    "test:watch": "jest -i --watchAll",
+    "coverage": "jest -i --coverage",
+    "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-validator": "^6.13.0",
     "faker": "^5.5.3",
     "http-status": "^1.5.0",
     "joi": "^17.4.2",

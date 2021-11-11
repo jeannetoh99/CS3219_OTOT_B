@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema(
     phone: {
       type: String,
       validate(value) {
-        if (!validator.isMobilePhone(value)) {
+        if (value.match(/\d/g).length !== 8) {
           throw new Error('Invalid phone');
         }
       },
