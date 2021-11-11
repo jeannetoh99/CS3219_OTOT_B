@@ -52,5 +52,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    - run: yarn
-    - run: yarn coverage
+    - run: cd backend && yarn
+    - run: cd backend && yarn coverage
