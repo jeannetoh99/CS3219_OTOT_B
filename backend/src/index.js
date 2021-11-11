@@ -13,7 +13,8 @@ let mongoose = require('mongoose');
 let app = express();
 
 // Import routes
-let apiRoutes = require("./routes/userRoutes")
+let userRoutes = require("./routes/userRoutes")
+let photoRoutes = require("./routes/photoRoutes")
 
 // Configure bodyparser to handle post request
 app.use(bodyParser.urlencoded({
@@ -38,7 +39,8 @@ var port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
 
 // Use Api routes in the App
-app.use('/api', apiRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/photos', photoRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {
