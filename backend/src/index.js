@@ -40,7 +40,7 @@ var port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
 
 // Use Api routes in the App
-app.use('/api/users', userRoutes);
+app.use('/api', userRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {
