@@ -1,0 +1,55 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  JWT_SECRET: thisisasamplesecret
+  JWT_ACCESS_EXPIRATION_MINUTES: 30
+  JWT_REFRESH_EXPIRATION_DAYS: 30
+
+jobs:
+  deploy-services:
+    needs: 
+    - build-services
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    - run: yarn 
+    - name: Deploy on AWS Lambda using Serverless Framework
+      uses: serverless/github-action@master
+      with:
+        args: -c "serverless deploy"
+        entrypoint: /bin/sh
+      env:
+        SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+        SLS_DEBUG: "*"
+
+  build-services:
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo
+        # Set health checks to wait until MongoDB has started.
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Map TCP port 27017 on service container to the host.
+          - 27017:27017
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    - run: yarn
+    - run: yarn coverage

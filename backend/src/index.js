@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb+srv://jeanne:kerwinism97!@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true});
+mongoose.connect('mongodb+srv://jeanne:9jh3VExRts0BINCm@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true});
 var db = mongoose.connection;
 
 // Added check for DB connection
