@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+var cors = require('cors')
+app.use(cors())
+
 // Use Api routes in the App
 app.use('/api', userRoutes);
 
