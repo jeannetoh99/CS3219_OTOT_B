@@ -14,7 +14,12 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 var cors = require('cors')
-app.use(cors())
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions))
 
 // Use Api routes in the App
 app.use('/api', userRoutes);

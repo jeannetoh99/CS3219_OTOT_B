@@ -32,15 +32,15 @@ const CreateUser = () => {
       .post(
         `${apiUrl}/users`,
         {
+          name: name.value,
+          email: email.value,
+          phone: phone.value,
+        },
+        {
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-        },
-        {
-          name: name.value,
-          email: email.value,
-          phone: phone.value,
         },
       )
       .then((res) => {
@@ -50,6 +50,7 @@ const CreateUser = () => {
         }
       })
       .catch((err) => {
+        console.log(err)
         setErrMessage(err.message)
       })
   }
