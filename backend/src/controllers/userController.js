@@ -4,10 +4,10 @@ const catchAsync = require('../utils/catchAsync');
 const User = require('../models/userModel');
 
 const createUser = catchAsync(async (req, res) => {
-  if (await User.isEmailTaken(userBody.email)) {
+  if (await User.isEmailTaken(req.body.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }
-  const user = await User.create(userBody);
+  const user = await User.create(req.body);
   res.status(httpStatus.CREATED).send(user);
 });
 
@@ -25,7 +25,7 @@ const getUser = catchAsync(async (req, res) => {
 });
 
 const updateUser = catchAsync(async (req, res) => {
-  const user = await getUserById(req.params.userId);
+  const user = await User.findById((req.params.userId));
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
   }
@@ -38,7 +38,7 @@ const updateUser = catchAsync(async (req, res) => {
 });
 
 const deleteUser = catchAsync(async (req, res) => {
-  const user = await getUserById(userId);
+  const user = await User.findById((req.params.userId));
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
   }
