@@ -24,6 +24,12 @@ app.use(cors(corsOptions))
 // Use Api routes in the App
 app.use('/api', userRoutes);
 
+const { errorConverter, errorHandler } = require('./middlewares/error');
+// convert error to ApiError, if needed
+app.use(errorConverter);
+// handle error
+app.use(errorHandler);
+
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express and Nodemon'));
 
