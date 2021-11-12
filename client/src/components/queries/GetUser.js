@@ -49,10 +49,9 @@ const GetUser = () => {
   }
 
   return (
-    <CRow>
-      <CRow>
+    <CRow className="align-items-center">
+      <CRow className="align-items-center">
         <CAlert
-          className="mx-4"
           visible={errMessage !== ''}
           color="danger"
           dismissible

@@ -35,7 +35,7 @@ const GetAllUsers = () => {
     <CCard className="mb-4">
       <CCardHeader>All Users</CCardHeader>
       <CCardBody>
-        <CTable align="middle" className="mb-0 border px-2" hover responsive>
+        <CTable align="middle" className="mb-0 border" hover responsive>
           <CTableHead color="light">
             <CTableRow>
               <CTableHeaderCell>Id</CTableHeaderCell>

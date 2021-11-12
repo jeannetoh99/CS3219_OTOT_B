@@ -33,7 +33,9 @@ const App = () => {
                 </CFormSelect>
               </div>
             </CForm>
-            <QueryResult queryType={query} />
+            <CCol className="align-items-center">
+              <QueryResult queryType={query} />
+            </CCol>
           </CRow>
         </CContainer>
       </div>

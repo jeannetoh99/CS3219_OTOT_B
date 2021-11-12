@@ -56,9 +56,8 @@ const CreateUser = () => {
   }
 
   return (
-    <CRow>
+    <CRow className="align-items-center">
       <CAlert
-        className="mx-4"
         visible={errMessage !== ''}
         color="danger"
         dismissible
@@ -66,16 +65,10 @@ const CreateUser = () => {
       >
         {errMessage}
       </CAlert>
-      <CAlert
-        className="mx-4"
-        visible={success}
-        color="success"
-        dismissible
-        onClose={() => setSuccess(false)}
-      >
-        Account successfully created!
+      <CAlert visible={success} color="success" dismissible onClose={() => setSuccess(false)}>
+        User successfully created!
       </CAlert>
-      <CCard className="mx-4">
+      <CCard>
         <CCardBody className="p-4">
           <CForm onSubmit={handleSubmit}>
             <CInputGroup className="mb-3">

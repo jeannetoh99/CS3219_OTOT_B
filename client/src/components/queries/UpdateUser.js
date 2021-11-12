@@ -49,26 +49,33 @@ const UpdateUser = () => {
     e.stopPropagation()
 
     axios
-      .put(`${apiUrl}/users/${id}`, {
-        name: user.name,
-        email: user.email,
-        phone: user.phone,
-      })
+      .put(
+        `${apiUrl}/users/${id.value}`,
+        {
+          name: user.name,
+          email: user.email,
+          phone: user.phone,
+        },
+        {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        },
+      )
       .then((res) => {
         console.log(res)
-        if (res.status === 201) {
-          setSuccess(true)
-        }
+        setSuccess(true)
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err.response)
         setErrMessage(err.message)
       })
   }
 
   return (
-    <CRow>
-      <CRow>
+    <CRow className="align-items-center">
+      <CRow className="align-items-center">
         <CAlert
           className="mx-4"
           visible={errMessage !== ''}
@@ -85,7 +92,7 @@ const UpdateUser = () => {
           dismissible
           onClose={() => setSuccess(false)}
         >
-          Account successfully updated!
+          User successfully updated!
         </CAlert>
         <CCard className="mx-4">
           <CCardBody className="p-4">
@@ -103,7 +110,7 @@ const UpdateUser = () => {
           </CCardBody>
         </CCard>
       </CRow>
-      <CRow>
+      <CRow className="align-items-center">
         <CCard className="mx-4 my-4">
           <CCardBody className="p-4">
             <CForm onSubmit={handleSubmit}>
