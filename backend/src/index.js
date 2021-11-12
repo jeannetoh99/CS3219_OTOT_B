@@ -44,7 +44,7 @@ app.use('/api', userRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {
-    console.log("Running RestHub on port " + port);
+    console.log("Running on port " + port);
 });
 
 module.exports.index = serverless(app);

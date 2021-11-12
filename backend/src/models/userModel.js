@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const { toJSON, paginate } = require('./plugins');
 
 const userSchema = mongoose.Schema(
   {
@@ -34,11 +33,6 @@ const userSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
-// add plugin that converts mongoose to json
-userSchema.plugin(toJSON);
-userSchema.plugin(paginate);
-
 
 userSchema.statics.isEmailTaken = async function (email, excludeUserId) {
   const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
