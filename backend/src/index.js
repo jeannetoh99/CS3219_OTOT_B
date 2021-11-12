@@ -7,8 +7,11 @@ const app = require('./app');
 // Setup server port 
 var port = process.env.PORT || 8080;
 
-var env = process.argv[2] || 'dev'
-const mongodbUrl = env === 'dev' ? 'mongodb://localhost/test' : 'mongodb+srv://jeanne:9jh3VExRts0BINCm@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+var env = process.argv[2] || 'prod'
+const mongodbUrl = env === 'prod' ? 'mongodb+srv://jeanne:9jh3VExRts0BINCm@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' : 'mongodb://localhost/test';
+
+console.log(mongodbUrl)
+
 // Connect to Mongoose and set connection variable
 mongoose.connect(mongodbUrl, { useNewUrlParser: true}).then(() => {
     console.log('Connected to MongoDB');
