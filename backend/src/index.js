@@ -10,8 +10,6 @@ var port = process.env.PORT || 8080;
 var env = process.argv[2] || 'prod'
 const mongodbUrl = env === 'prod' ? 'mongodb+srv://jeanne:9jh3VExRts0BINCm@cluster0.ehxlb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' : 'mongodb://localhost/test';
 
-console.log(mongodbUrl)
-
 // Connect to Mongoose and set connection variable
 mongoose.connect(mongodbUrl, { useNewUrlParser: true}).then(() => {
     console.log('Connected to MongoDB');
